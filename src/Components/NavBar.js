@@ -21,6 +21,9 @@ function NavBar() {
           <span className={classes.logo_color_green}>Us</span>
         </Link>
         <nav className="md:ml-auhref flex flex-wrap items-center text-base justify-center">
+          <Link href="/" className={classes.nav_items}>
+            Home
+          </Link>
           <Link href="/aboutUs" className={classes.nav_items}>
             About Us
           </Link>

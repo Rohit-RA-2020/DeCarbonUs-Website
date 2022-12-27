@@ -1,9 +1,9 @@
 import Image from 'next/image'
 // import LottiePlayer from 'lottie-web';
-import fummingFactory from "../../public/Assets/Animations/fummingFactory.gif";
-import connectWithFriends from "../../public/Assets/Animations/connectWithFriends.gif";
-import personalized_tracks from "../../public/Assets/Animations/personalized_tracks.gif";
-import NGO from "../../public/Assets/Animations/NGO.gif";
+import fummingFactory from "../../public/Assets/Animations/about_animations/fummingFactory.gif";
+import connectWithFriends from "../../public/Assets/Animations/about_animations/connectWithFriends.gif";
+import personalized_tracks from "../../public/Assets/Animations/about_animations/personalized_tracks.gif";
+import NGO from "../../public/Assets/Animations/about_animations/NGO.gif";
 import Link from "next/link";
 const About = () => {
   return (
@@ -22,7 +22,7 @@ const About = () => {
             footprint.
           </p>
           <Link
-            href="/calculate"
+            href="/CalculateEmission"
             className="text-green-800 inline-flex items-center"
           >
             Learn More
