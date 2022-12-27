@@ -49,7 +49,7 @@ const questions = [
   {
     id: 4,
     question: "Which kind of fuel do you use ?",
-    options: ["Electric", "Natural gas", "Petrol, Disel"],
+    options: ["Electric", "Natural gas", "Petrol, Diesel"],
     animation:fuel,
   },
   {
@@ -156,7 +156,7 @@ const CalculateEmission = () => {
     setIsSubmitted(true);
     const axios = require("axios").default;
     axios
-      .post("https://carbonfootprint-api.herokuapp.com/calculate", responses)
+      .post("https://api-account-345807.el.r.appspot.com/calculate", responses)
       .then(function (response) {
         rdata(response.data);
         // console.log(response.data);
