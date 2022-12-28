@@ -1,16 +1,17 @@
 import Link from "next/link";
+import Lottie from "lottie-react";
 import React, { useState } from "react";
 import Layout from "../src/Layout/Layout";
 import Image from "next/image";
-import air from "../public/Assets/Animations/calculator_animations/air_travel.gif";
-import diet from "../public/Assets/Animations/calculator_animations/diet.gif";
-import car from "../public/Assets/Animations/calculator_animations/car.gif";
-import fuel from "../public/Assets/Animations/calculator_animations/fuel.gif";
-import shopping from "../public/Assets/Animations/calculator_animations/shopping.gif";
-import home from "../public/Assets/Animations/calculator_animations/home.gif";
-import members from "../public/Assets/Animations/calculator_animations/members.gif";
-import pet from "../public/Assets/Animations/calculator_animations/pet.gif";
-import renew_energy from "../public/Assets/Animations/calculator_animations/renew_energy.gif";
+import air from "../public/Assets/Animations/calculator_animations/air_travel.json";
+import diet from "../public/Assets/Animations/calculator_animations/diet.json";
+import car from "../public/Assets/Animations/calculator_animations/car.json";
+import fuel from "../public/Assets/Animations/calculator_animations/fuel.json";
+import shopping from "../public/Assets/Animations/calculator_animations/shopping.json";
+import home from "../public/Assets/Animations/calculator_animations/home.json";
+import members from "../public/Assets/Animations/calculator_animations/members.json";
+import pet from "../public/Assets/Animations/calculator_animations/pet.json";
+import renew_energy from "../public/Assets/Animations/calculator_animations/renew_energy.json";
 
 let a = 0;
 let b = 1;
@@ -175,10 +176,7 @@ const CalculateEmission = () => {
         </div>
         <div className="w-full flex flex-col sm:flex-row  mx-auto text-center">
           <div className="flex w-full sm:w-2/5 justify-center align-middle my-auto">
-            <Image
-              className="h-20vh sm:h-full w-1/2 sm:w-full"
-              src={isQuestionIndex.animation}
-            />
+            <Lottie className="h-20vh sm:h-full w-1/2 sm:w-full" animationData={isQuestionIndex.animation} />
           </div>
           <div className="w-full sm:w-3/5">
             {!isSubmitted && (
@@ -265,7 +263,7 @@ const CalculateEmission = () => {
                   </div>
                 )}
 
-                <div className="flex flex-row justify-between  w-4/5 sm:w-1/2 mx-auto">
+                <div className="flex flex-row justify-between  w-5/6 sm:w-3/5 mx-auto">
                   <button
                     className="py-3 px-4 bg-gray-300 my-2 rounded-md hover:bg-green-700"
                     onClick={distributionHandler}

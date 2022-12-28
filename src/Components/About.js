@@ -1,18 +1,16 @@
-import Image from 'next/image'
-// import LottiePlayer from 'lottie-web';
-import fummingFactory from "../../public/Assets/Animations/about_animations/fummingFactory.gif";
-import connectWithFriends from "../../public/Assets/Animations/about_animations/connectWithFriends.gif";
-import personalized_tracks from "../../public/Assets/Animations/about_animations/personalized_tracks.gif";
-import NGO from "../../public/Assets/Animations/about_animations/NGO.gif";
+import Lottie from "lottie-react";
+import fummingFactory from "../../public/Assets/Animations/about_animations/fumming_factory.json";
+import connectWithFriends from "../../public/Assets/Animations/about_animations/connectWithFriends_1.json";
+import personalized_tracks from "../../public/Assets/Animations/about_animations/personalized_tracks.json";
+import NGO from "../../public/Assets/Animations/about_animations/NGO.json";
 import Link from "next/link";
 const About = () => {
   return (
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-wrap justify-center">
-        {/* <div className=" lg:w-1/5 md:w-full px-8 py-6  text-left  rounded-3xl overflow-hidden shadow-lg"> */}
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500 ">
           <div className="h-36  mb-4">
-            <Image className="h-40 w-auto mx-auto"  src={fummingFactory}></Image>
+            <Lottie className="h-36" animationData={fummingFactory} />
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Analyze for C02 emission
@@ -41,7 +39,7 @@ const About = () => {
         </div>
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        <Image className="h-40 w-auto mx-auto"  src={personalized_tracks}></Image>
+        <Lottie className="h-36" animationData={personalized_tracks} />
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Get Personalized tracks
@@ -70,7 +68,7 @@ const About = () => {
         </div>
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        <Image className="h-40 w-auto mx-auto"  src={connectWithFriends}></Image>
+        <Lottie className="h-36" animationData={connectWithFriends} />
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Connect with your friends
@@ -99,7 +97,8 @@ const About = () => {
         </div>
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        <Image className="h-40 w-auto mx-auto"  src={NGO}></Image>
+        {/* <Image className="h-40 w-auto mx-auto"  src={NGO}></Image> */}
+        <Lottie className="h-36" animationData={NGO} />
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Explore local NGOs
