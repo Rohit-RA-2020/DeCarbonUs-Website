@@ -41,14 +41,14 @@ const About = () => {
         </div>
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        <Image className="h-40 w-auto mx-auto"  src={connectWithFriends}></Image>
+        <Image className="h-40 w-auto mx-auto"  src={personalized_tracks}></Image>
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Get Personalized tracks
           </h2>
           <p className="leading-relaxed text-gray-500 text-base mb-4">
-            Follow personalized tracks to offset your emisson and move towrds
-            sustanablityn
+            Follow personalized tracks to offset your emisson and move towards
+            sustanaibility.
           </p>
           <Link
             href="/tracks"
@@ -70,7 +70,7 @@ const About = () => {
         </div>
         <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        <Image className="h-40 w-auto mx-auto"  src={personalized_tracks}></Image>
+        <Image className="h-40 w-auto mx-auto"  src={connectWithFriends}></Image>
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">
             Connect with your friends
