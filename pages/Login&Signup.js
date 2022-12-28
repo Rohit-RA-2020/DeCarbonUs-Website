@@ -18,7 +18,7 @@ const LoginPage = () => {
         </div>
 
         <div className="flex w-full sm:w-2/5 sm:h-80vh items-center bg-white-500/50">
-          <div className="lg:w-4/5 md:w-full text-left px-4 py-6 my-2 border-1 rounded-3xl overflow-hidden transform transition duration-500 sm:m-0 ">
+          <div className="lg:w-4/5 md:w-full text-left px-4 py-6 my-2 border-1 rounded-3xl overflow-hidden transform transition duration-500 sm:m-0  mx-auto">
             <div class="w-full h-full text-gray-800 bg-white-500/50 ">
               <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
 

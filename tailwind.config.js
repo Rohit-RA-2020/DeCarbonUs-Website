@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'face-bkg': "url('../public/Assets/bg.png')",
         'hero-bkg': "url('../public/Assets/heroBg.jpg')",        
       },
       backgroundSize:{

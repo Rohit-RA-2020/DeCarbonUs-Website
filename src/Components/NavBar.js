@@ -16,9 +16,9 @@ function NavBar() {
             src={AppLogo}
             alt="Website logo"
           />
-          <span className={classes.logo_color_green}>De</span>
-          <span className={classes.logo_color_grey} >Carbon</span>
-          <span className={classes.logo_color_green}>Us</span>
+          <span className="text-green-700 text-xl font-bold">De</span>
+          <span className="text-gray-800 text-xl font-bold" >Carbon</span>
+          <span className="text-green-700 text-xl font-bold">Us</span>
         </Link>
         <nav className="md:ml-auhref flex flex-wrap items-center text-base justify-center">
           <Link href="/" className={classes.nav_items}>

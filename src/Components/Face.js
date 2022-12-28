@@ -6,21 +6,20 @@ const FacePage = () => {
   return (
     <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0 pt-10 sm:pt-60 xl:pt-20">
       <div className="lg:w-100 text-center ">
-        <span className="text-6xl sm:text-8xl font-semibold text-green-700 font-openSans">
-          Control Your
-        </span>
-        <span className="text-6xl sm:text-8xl font-semibold text-gray-500 font-openSans ">
-          {" "}
-          Carbon
+        <span className="text-6xl sm:text-8xl font-semibold text-gray-600 font-openSans">
+          Grass can be
         </span>
         <span className="text-6xl sm:text-8xl font-semibold text-green-700 font-openSans ">
           {" "}
-          Footprint
+          Greener
         </span>
-        <p className="my-5 text-sm sm:text-xl text-gray-800 xl:w-2/3 mx-auto">
+        <span className="text-6xl sm:text-8xl font-semibold text-gray-600 font-openSans ">
+          {" "}
+          on your side
+        </span>
+        <p className="my-5 text-sm sm:text-xl text-gray-500 xl:w-1/2 mx-auto my-10">
           DeCarbonUs is an App-based solution to help fight climate change by
           facilitating individuals to reduce and control their carbon footprint.
-          Focused towards solving United nations SDGs
         </p>
       </div>
       <div className="lg:w-1/2  flex flex-col sm:flex-row justify-around mx-auto ">
