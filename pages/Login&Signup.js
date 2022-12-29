@@ -4,7 +4,7 @@ import Link from "next/link";
 const LoginPage = () => {
   return (
     <Layout>
-      <div className="h-150vh sm:h-93vh sm:flex flex-row align- bg-signin-bkg bg-contain bg-no-repeat bg-left">
+      <div key="login" className="h-150vh sm:h-93vh sm:flex flex-row align- bg-signin-bkg bg-contain bg-no-repeat bg-left">
         <div className="flex flex-col w-full sm:w-3/5 sm:h-80vh items-center text-center pt-0 xl:pt-30">
           <h2 className="w-4/5 sm:w-4/6 text-green-800 font-bold text-5xl sm:text-6xl">
             Join us in our mission

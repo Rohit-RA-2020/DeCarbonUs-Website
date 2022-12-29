@@ -57,7 +57,7 @@ function Team() {
                   Rohit Ranjan
                 </h2>
                 <h3 className="text-gray-400 mb-3 my-3 font-semibold">Co-Founder & CEO, CTO</h3>
-                <h3 className="text-gray-400 mb-3">Flutter & Backend Developer</h3>.
+                <h3 className="text-gray-400 mb-3">Flutter & Backend Developer</h3>
                 <span className="inline-flex">
                   <a
                     href="https://www.linkedin.com/in/rohitranjan2020/"

@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <LandingPage />
+        <LandingPage key="home" />
       </Layout>
       <style jsx global>{`
   html,
