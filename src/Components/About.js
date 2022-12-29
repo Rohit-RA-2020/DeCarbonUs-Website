@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-wrap justify-center">
-        <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500 ">
+        <div id="ab1" className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500 ">
           <div className="h-36  mb-4">
             <Lottie className="h-36" animationData={fummingFactory} />
           </div>
@@ -37,7 +37,7 @@ const About = () => {
             </svg>
           </Link>
         </div>
-        <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
+        <div id="ab2" className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
         <Lottie className="h-36" animationData={personalized_tracks} />
           </div>
@@ -66,7 +66,7 @@ const About = () => {
             </svg>
           </Link>
         </div>
-        <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
+        <div id="ab3" className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
         <Lottie className="h-36" animationData={connectWithFriends} />
           </div>
@@ -95,9 +95,8 @@ const About = () => {
             </svg>
           </Link>
         </div>
-        <div className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
+        <div id="ab4" className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500">
         <div className="h-36  mb-4">
-        {/* <Image className="h-40 w-auto mx-auto"  src={NGO}></Image> */}
         <Lottie className="h-36" animationData={NGO} />
           </div>
           <h2 className="text-green-800 text-lg title-font font-medium mb-3">

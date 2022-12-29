@@ -4,15 +4,12 @@ const Layout=(props)=>{
   console.log(props.children)
   let focused =""
   if (props.children.key == "home") {
-    console.log("home worked")
      focused = "home"
   }
   if (props.children.key == "login") {
-    console.log("login worked")
      focused = "login"
   }
   if (props.children.key == "about") {
-    console.log("about worked")
      focused = "about"
   }
     return <>

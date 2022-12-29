@@ -25,8 +25,8 @@ function NavBar(props) {
             href="/"
             className={
               props.focused == "home"
-                ? "px-5 py-2 text-gray-500 border-b-4 border-green-500"
-                : "px-5 py-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
+                ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
+                : "px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
             }
           >
             Home
@@ -35,8 +35,8 @@ function NavBar(props) {
             href="/aboutUs"
             className={
               props.focused == "about"
-                ? "px-5 py-2 text-gray-500 border-b-4 border-green-500"
-                : "px-5 py-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
+                ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
+                : "px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
             }
           >
             About Us
@@ -45,8 +45,8 @@ function NavBar(props) {
             href="/Login&Signup"
             className={
               props.focused == "login"
-                ? "px-5 py-2 text-gray-500 border-b-4 border-green-500"
-                : "px-5 py-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
+                ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
+                : "px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
             }
           >
             Sign In

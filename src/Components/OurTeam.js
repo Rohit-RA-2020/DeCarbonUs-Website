@@ -1,15 +1,12 @@
 import Image from 'next/image'
-// import KA from "../../public/Assets/ka.jpg";
-// import YS from "../../public/Assets/ys.jpg";
+import KA from "../../public/Assets/ka.jpg";
+import YS from "../../public/Assets/ys.jpg";
 import VS from "../../public/Assets/vs.jpg";
-// import RR from "../../public/Assets/rr.jpg";
+import RR from "../../public/Assets/rr.jpg";
 import RM from "../../public/Assets/rm.jpg";
 import FS from "../../public/Assets/fs.jpg";
 import { useState } from "react";
 import db from "../Firebase";
-const RR ="https://firebasestorage.googleapis.com/v0/b/decarbonus-c1037.appspot.com/o/rr.jpg?alt=media&token=4ac48ca9-84a4-4746-ab0b-ef3f4decb5c7"
-const KA ="https://firebasestorage.googleapis.com/v0/b/decarbonus-c1037.appspot.com/o/ka.jpg?alt=media&token=8651c787-bc61-4273-9d8e-58b9fbef21c9"
-const YS ="https://firebasestorage.googleapis.com/v0/b/decarbonus-c1037.appspot.com/o/ys.jpg?alt=media&token=3df7d221-1f3a-4d1e-9d40-2c4c6bc54a4f"
 
 function Team() {
   const [name, setName] = useState("");
@@ -54,8 +51,6 @@ function Team() {
                 alt="Rohit Ranjan"
                 className="flex-shrink-0 rounded-full w-48 h-48 object-cover object-center sm:mb-0 mb-4"
                 src={RR}
-                height={48}
-                width={48}
               />
               <div className="flex-grow text-center my-3">
                 <h2 className="title-font font-medium text-lg text-gray-500">
@@ -146,8 +141,6 @@ function Team() {
                 alt="Yash Satankar"
                 className="flex-shrink-0 rounded-full w-48 h-48 object-cover object-center sm:mb-0 mb-4"
                 src={YS}
-                height={48}
-                width={48}
               />
               <div className="flex-grow text-center my-3">
                 <h2 className="title-font font-medium text-lg text-gray-500">
