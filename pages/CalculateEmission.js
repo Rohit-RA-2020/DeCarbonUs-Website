@@ -170,7 +170,7 @@ const CalculateEmission = () => {
 
   return (
     <Layout>
-      <div className="w-full sm:w-2/3 h-93vh text-gray-800 flex flex-col mx-auto text-center">
+      <div key="calculator" className="w-full sm:w-2/3 h-88vh text-gray-800 flex flex-col mx-auto text-center">
         <div className=" text-2xl sm:text-4xl mb-10 font-bold text-green-800">
           <h1>Calculate your carbon footprint</h1>
         </div>

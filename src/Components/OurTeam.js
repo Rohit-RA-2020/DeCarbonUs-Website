@@ -10,7 +10,7 @@ const Team = () => {
   return (
     <section className="text-gray-600 body-font px-10">
       <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
+        <div className="flex flex-col text-center w-full mb-20 ">
           <h1 className="text-3xl sm:text-7xl font-medium title-font mb-4 text-gray-800 tracking-widest">
             OUR TEAM
           </h1>
@@ -20,7 +20,7 @@ const Team = () => {
           </p>
         </div>
         <div className="flex flex-wrap w-full">
-          <div className="p-4 w-full sm:w-1/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Rohit Ranjan"
@@ -68,7 +68,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-1/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Khushboo Agnihotri"
@@ -116,7 +116,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-1/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Yash Satankar"
@@ -162,7 +162,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-1/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Romir Mathur"
@@ -208,7 +208,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-1/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Vinay Selukar"
@@ -250,7 +250,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-5/5 ">
+          <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-center justify-center text-center sm:text-center">
               <Image
                 alt="Feliz"
