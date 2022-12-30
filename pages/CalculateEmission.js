@@ -116,6 +116,7 @@ const CalculateEmission = () => {
   const skipClickHandler = (event) => {
     event.preventDefault();
     setIsQuestionIndex(questions[++a]);
+    b++;
   };
   const nextClickHandler = (event) => {
     event.preventDefault();
