@@ -25,6 +25,7 @@ const Hero = () => {
       } else {
         alert("Please enter an email address.");
       }
+      SetEmail("");
     };
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
@@ -53,6 +54,7 @@ const Hero = () => {
             <div className="flex flex-col w-full justify-center items-end">
               <div className="flex relative w-full sm:w-1/2 md:w-full lg:w-full  mx-auto justify-center">
                 <input
+                value={email}
                   type="text"
                   id="hero-field"
                   name="hero-field"

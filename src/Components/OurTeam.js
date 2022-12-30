@@ -176,7 +176,7 @@ const Team = () => {
                 <h3 className="text-gray-400 mb-3 my-3 font-semibold">
                   Co-Founder & CMO
                 </h3>
-                <h3 className="text-gray-400 mb-3">ML & Web Developer</h3>
+                <h3 className="text-gray-400 mb-3">Data Analyst</h3>
                 <span className="inline-flex">
                   <a
                     href="https://www.linkedin.com/in/romir-mathur17/"
