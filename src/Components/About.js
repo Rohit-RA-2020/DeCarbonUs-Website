@@ -23,7 +23,7 @@ const About = () => {
             href="/CalculateEmission"
             className="text-green-800 inline-flex items-center"
           >
-            Learn More
+            Calculate
             <svg
               fill="none"
               stroke="currentColor"

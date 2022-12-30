@@ -2,7 +2,6 @@ import Link from "next/link";
 import Lottie from "lottie-react";
 import React, { useState } from "react";
 import Layout from "../src/Layout/Layout";
-import Image from "next/image";
 import air from "../public/Assets/Animations/calculator_animations/air_travel.json";
 import diet from "../public/Assets/Animations/calculator_animations/diet.json";
 import car from "../public/Assets/Animations/calculator_animations/car.json";
@@ -94,6 +93,7 @@ const questions = [
 const CalculateEmission = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isQuestionIndex, setIsQuestionIndex] = useState(questions[a]);
+  const [showPrev, setShowPrev] = useState(false);
   const [isLastQuestion, setisLastQuestion] = useState(false);
   const [distribution, showDistribution] = useState(false);
   const [isResults, setIsResults] = useState({
@@ -108,6 +108,8 @@ const CalculateEmission = () => {
     shopping: 0,
   });
 
+ 
+
   function optionClickHandler(qIndex, oIndex) {
     responses[`${qIndex}`] = oIndex;
     console.log(oIndex);
@@ -118,12 +120,22 @@ const CalculateEmission = () => {
     setIsQuestionIndex(questions[++a]);
     b++;
   };
+  const prevClickHandler = (event) => {
+    event.preventDefault();
+    setIsQuestionIndex(questions[--a]);
+    b--;
+    if (a === 0) {
+      setShowPrev(false);
+    }
+  };
   const nextClickHandler = (event) => {
     event.preventDefault();
     setIsQuestionIndex(questions[++a]);
     b++;
     if (a === 8) {
       setisLastQuestion(true);
+    } else if (a !== 0) {
+      setShowPrev(true);
     }
   };
 
@@ -202,6 +214,12 @@ const CalculateEmission = () => {
                 </div>
                 {!isLastQuestion && (
                   <div className="flex flex-row justify-between  w-4/5 sm:w-1/2 mx-auto">
+                    {showPrev && (<button
+                      className="py-3 px-6 bg-gray-300 my-2 rounded-md active:bg-gray-700 active:text-white sm:hover:bg-gray-700 sm:hover:text-white"
+                      onClick={prevClickHandler}
+                    >
+                      Prev
+                    </button>)}
                     <button
                       className="py-3 px-6 bg-gray-300 my-2 rounded-md active:bg-gray-700 active:text-white sm:hover:bg-gray-700 sm:hover:text-white"
                       onClick={skipClickHandler}
