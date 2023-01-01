@@ -103,7 +103,7 @@ const Footer = () => {
             </Link>
             <Link
               className="ml-3 text-gray-500"
-              href="https://www.instagram.com/decarbonus"
+              href="https://www.facebook.com/people/Decarbonus/100088914860208/"
               target="_blank"
             >
               <svg
