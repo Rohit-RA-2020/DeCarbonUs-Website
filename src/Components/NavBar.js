@@ -1,6 +1,5 @@
 import Image from "next/image";
 import AppLogo from "../../public/Assets/decarbonusLogo.png";
-
 import Link from "next/link";
 
 function NavBar(props) {

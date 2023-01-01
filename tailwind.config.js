@@ -16,6 +16,7 @@ module.exports = {
         'ps':['100%','50%'],
       },
       height:{
+        '10vh':"10vh",
         '20vh':"20vh",
         '30vh':"30vh",
         '40vh':"40vh",
