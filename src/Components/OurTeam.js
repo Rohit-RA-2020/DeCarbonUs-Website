@@ -5,10 +5,23 @@ import VS from "../../public/Assets/vs.jpg";
 import RR from "../../public/Assets/rr.jpg";
 import RM from "../../public/Assets/rm.jpg";
 import FS from "../../public/Assets/fs.jpg";
+import video from "../../public/Assets/bkg_vid.mp4";
 
 const Team = () => {
   return (
     <section className="text-gray-600 body-font px-10">
+      <div>
+        <video
+          autoplay
+          playsInline
+          loop
+          muted
+          class="css-1oe2cao"
+        >
+          <source src="../../public/Assets/bkg_vid.mp4"
+          type="video/mp4"/>
+        </video>
+      </div>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20 ">
           <h1 className="text-3xl sm:text-7xl font-medium title-font mb-4 text-gray-800 tracking-widest">
