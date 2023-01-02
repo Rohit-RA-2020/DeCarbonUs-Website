@@ -1,8 +1,8 @@
 import Lottie from "lottie-react";
-import fummingFactory from "../../public/Assets/Animations/about_animations/fumming_factory.json";
-import connectWithFriends from "../../public/Assets/Animations/about_animations/connectWithFriends_1.json";
-import personalized_tracks from "../../public/Assets/Animations/about_animations/personalized_tracks.json";
-import NGO from "../../public/Assets/Animations/about_animations/NGO.json";
+import fummingFactory from "../../../public/Assets/Animations/about_animations/fumming_factory.json";
+import connectWithFriends from "../../../public/Assets/Animations/about_animations/connectWithFriends_1.json";
+import personalized_tracks from "../../../public/Assets/Animations/about_animations/personalized_tracks.json";
+import NGO from "../../../public/Assets/Animations/about_animations/NGO.json";
 import Link from "next/link";
 const About = () => {
   return (

@@ -1,6 +1,7 @@
 import Layout from "../src/Layout/Layout";
 import Link from "next/link";
-
+import Image from "next/image";
+import logImg from "../public/Assets/logImg.jpg"
 const LoginPage = () => {
   return (
     <Layout>
@@ -10,11 +11,11 @@ const LoginPage = () => {
             Join us in our mission
           </h2>
           <div class="rounded-lg overflow-hidden">
-            <img alt="content" class="object-cover object-center h-full w-full" src="/Assets/logImg.jpg"/>
+            <Image
+                alt="content" class="object-cover object-center h-full w-full"
+                src={logImg}
+              />
           </div>
-          {/* <div class="grow-0 shrink-1 md:shrink-0 basis-auto sm:w-1/2 xl:w-2/3 lg:w-2/3 md:w-1/2 mb-12 md:mb-0">
-            <img src='/Assets/logImg.jpg' class="object-scale-down" alt="LogIn Page" />
-          </div> */}
         </div>
 
         <div className="flex w-full sm:w-2/5 sm:h-80vh items-center bg-white-500/50">

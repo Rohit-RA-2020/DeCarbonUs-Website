@@ -1,10 +1,10 @@
 import Image from "next/image";
-import KA from "../../public/Assets/ka.jpg";
-import YS from "../../public/Assets/ys.jpg";
-import VS from "../../public/Assets/vs.jpg";
-import RR from "../../public/Assets/rr.jpg";
-import RM from "../../public/Assets/rm.jpg";
-import FS from "../../public/Assets/fs.jpg";
+import KA from "../../../public/Assets/ka.jpg";
+import YS from "../../../public/Assets/ys.jpg";
+import VS from "../../../public/Assets/vs.jpg";
+import RR from "../../../public/Assets/rr.jpg";
+import RM from "../../../public/Assets/rm.jpg";
+import FS from "../../../public/Assets/fs.jpg";
 
 const Team = () => {
   return (

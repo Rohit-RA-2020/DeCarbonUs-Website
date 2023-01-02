@@ -1,41 +1,38 @@
 import React from "react";
 import { useState } from "react";
-import db from "../Firebase";
-import Image from 'next/image'
-import DCU from "../../public/Assets/dcu.png";
-import AppStore from "../../public/Assets/app_store.png";
-import PlayStore from "../../public/Assets/play_store.png";
+import db from "../../../Firebase";
+import Image from "next/image";
+import DCU from "../../../public/Assets/dcu.png";
+import AppStore from "../../../public/Assets/app_store.png";
+import PlayStore from "../../../public/Assets/play_store.png";
 
 const Hero = () => {
-    const [email, SetEmail] = useState("");
-    const sub = (e) => {
-      e.preventDefault();
-      if (email != "") {
-        db.collection("emails")
-          .doc(new Date().toISOString())
-          .set({
-            email: email,
-          })
-          .then(() => {
-            alert("Email added successfully");
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-      } else {
-        alert("Please enter an email address.");
-      }
-      SetEmail("");
-    };
+  const [email, SetEmail] = useState("");
+  const sub = (e) => {
+    e.preventDefault();
+    if (email != "") {
+      db.collection("emails")
+        .doc(new Date().toISOString())
+        .set({
+          email: email,
+        })
+        .then(() => {
+          alert("Email added successfully");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else {
+      alert("Please enter an email address.");
+    }
+    SetEmail("");
+  };
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
       <div className="w-fullcontainer flex px-0 pt-24 flex-col items-center">
-
-
         <div className="w-full sm:w-full flex justify-center">
           <Image className="h-100 rounded-lg" alt="App Photos" src={DCU} />
         </div>
-
 
         <div className="lg:flex-grow md:w-full flex flex-col md:items-start md:text-left items-center py-20 bg-hero-bkg bg-cover bg-cente">
           <h1 className="text-center text-4xl sm:text-6xl  mb-4 font-medium text-black mx-auto">
@@ -47,14 +44,14 @@ const Hero = () => {
           </p>
           <form
             className="w-full sm:w-3/5 mx-auto"
-          onSubmit={(event) => {
-            sub(event);
-          }}
+            onSubmit={(event) => {
+              sub(event);
+            }}
           >
             <div className="flex flex-col w-full justify-center items-end">
               <div className="flex relative w-full sm:w-1/2 md:w-full lg:w-full  mx-auto justify-center">
                 <input
-                value={email}
+                  value={email}
                   type="text"
                   id="hero-field"
                   name="hero-field"

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import db from "../Firebase";
-import connect from "../../public/Assets/connect.png";
+import db from "../../Firebase";
+import connect from "../../../public/Assets/connect.png";
 
 const Contact = () => {
   const [name, setName] = useState("");

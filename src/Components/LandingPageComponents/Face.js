@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import AppStore from "../../public/Assets/app_store.png";
-import PlayStore from "../../public/Assets/play_store.png";
+import AppStore from "../../../public/Assets/app_store.png";
+import PlayStore from "../../../public/Assets/play_store.png";
 import React from "react";
 
 import Lottie from "lottie-react";
-import y2023 from "../../public/Assets/Animations/2023.json";
+import y2023 from "../../../public/Assets/Animations/2023.json";
 
 const FacePage = () => {
   return (
