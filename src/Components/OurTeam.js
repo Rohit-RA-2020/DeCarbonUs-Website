@@ -10,14 +10,6 @@ const Team = () => {
   return (
     <section className="text-gray-600 body-font px-10">
       <div className="container px-5 py-24 mx-auto">
-        <video
-          className="video w-full object-cover rounded-lg"
-          src="https://klima.com/_next/static/videos/about_1920x1080-aacff1d86bd792c26b4b15db748d0c6c.webm"
-          loop
-          autoPlay
-        >
-          Your browser does not support the video tag.
-        </video>
         <div className="flex flex-col text-center w-full mb-20 ">
           <h1 className="text-3xl sm:text-7xl font-medium title-font mb-4 text-gray-800 tracking-widest">
             OUR TEAM
