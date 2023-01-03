@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import Lottie from "lottie-react";
 import Layout from "../src/Layout/Layout";
 import air from "../public/Assets/Animations/calculator_animations/air_travel.json";
@@ -110,7 +110,9 @@ const CalculateEmission = () => {
     shopping: 0,
   });
 
- 
+  useEffect(() => {
+    setShowModal(true);
+  }, []); 
 
   function optionClickHandler(qIndex, oIndex) {
     responses[`${qIndex}`] = oIndex;
@@ -189,10 +191,6 @@ const CalculateEmission = () => {
         <div className=" text-2xl sm:text-4xl mb-10 font-bold text-green-800">
           <h1>Calculate your carbon footprint</h1>
         </div>
-          <button onClick={()=>setShowModal(true)}>Modal</button>
-          <Modal show={showModal} onClose={()=> setShowModal(false)}>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad rem qui atque veniam recusandae iure nihil ducimus. Ut earum voluptate eveniet unde explicabo nisi maxime.</p>
-          </Modal>
         <div className="w-full flex flex-col sm:flex-row  mx-auto text-center">
           <div className="flex w-full sm:w-2/5 justify-center align-middle my-auto">
             <Lottie className="h-20vh sm:h-full w-1/2 sm:w-full" animationData={isQuestionIndex.animation} />
@@ -304,11 +302,13 @@ const CalculateEmission = () => {
                 </div>
               </div>
             )}
-            <div className="text-green-800">
-              <Link href="/">back to home..</Link>
-            </div>
           </div>
         </div>
+        
+        <button className="text-green-800 my-10" onClick={()=>setShowModal(true)}> Read more about carbon footprint... </button>
+          <Modal show={showModal} onClose={()=> setShowModal(false)}>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad rem qui atque veniam recusandae iure nihil ducimus. Ut earum voluptate eveniet unde explicabo nisi maxime.</p>
+          </Modal>
       </div>
     </Layout>
   );

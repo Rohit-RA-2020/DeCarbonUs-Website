@@ -1,13 +1,60 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import db from "../../../Firebase";
 import Image from "next/image";
-import DCU from "../../../public/Assets/dcu.png";
 import AppStore from "../../../public/Assets/app_store.png";
 import PlayStore from "../../../public/Assets/play_store.png";
+import ss1 from "../../../public/Assets/AppSs/ss1.png";
+import ss2 from "../../../public/Assets/AppSs/ss2.png";
+import ss3 from "../../../public/Assets/AppSs/ss3.png";
+import ss4 from "../../../public/Assets/AppSs/ss4.png";
+import ss5 from "../../../public/Assets/AppSs/ss5.png";
+
+let a = 0;
+const images = [
+  {
+    id: "i1",
+    src: ss1,
+    desc: "Image 11 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
+  },
+  {
+    id: "i2",
+    src: ss2,
+    desc: "Image 22lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work. Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
+  },
+  {
+    id: "i3",
+    src: ss3,
+    desc: "Image 33 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work. Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
+  },
+  {
+    id: "i4",
+    src: ss4,
+    desc: "Image 44 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work.Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
+  },
+  {
+    id: "i5",
+    src: ss5,
+    desc: "Image 55 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work.Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
+  },
+];
 
 const Hero = () => {
+  const [isCurrentImage, setIsCurrentImage] = useState(images[a]);
   const [email, SetEmail] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (a == 5) {
+        a = 0;
+      }
+        setIsCurrentImage(images[a]);
+        a++;
+      
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const sub = (e) => {
     e.preventDefault();
     if (email != "") {
@@ -30,8 +77,17 @@ const Hero = () => {
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
       <div className="w-fullcontainer flex px-0 pt-24 flex-col items-center">
-        <div className="w-full sm:w-full flex justify-center">
-          <Image className="h-100 rounded-lg" alt="App Photos" src={DCU} />
+        <div className="w-full sm:w-full px-5 py-5 sm:px-48 sm:py-20 flex flex-col sm:flex-row justify-center">
+          <div className="w-full sm:w-1/2">
+            <Image
+              className="w-full rounded-lg"
+              alt="App Photos"
+              src={isCurrentImage.src}
+            />
+          </div>
+          <div className="flex w-full sm:w-1/2 items-center text-justify">
+              <p className="my-auto">{isCurrentImage.desc}</p>
+              </div>
         </div>
 
         <div className="lg:flex-grow md:w-full flex flex-col md:items-start md:text-left items-center py-20 bg-hero-bkg bg-cover bg-cente">
