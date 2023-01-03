@@ -28,6 +28,7 @@ module.exports = {
         '90vh':"90vh",
         '93vh':"93vh",
         '95vh':"95vh",
+        '100vh':"100vh",
         '150vh':"150vh",
         '200vh':"520vh",
 

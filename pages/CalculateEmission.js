@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { useState } from "react";
 import Lottie from "lottie-react";
-import React, { useState } from "react";
 import Layout from "../src/Layout/Layout";
 import air from "../public/Assets/Animations/calculator_animations/air_travel.json";
 import diet from "../public/Assets/Animations/calculator_animations/diet.json";
@@ -11,6 +11,7 @@ import home from "../public/Assets/Animations/calculator_animations/home.json";
 import members from "../public/Assets/Animations/calculator_animations/members.json";
 import pet from "../public/Assets/Animations/calculator_animations/pet.json";
 import renew_energy from "../public/Assets/Animations/calculator_animations/renew_energy.json";
+import Modal from "../src/UI/Modal"
 
 let a = 0;
 let b = 1;
@@ -96,6 +97,7 @@ const CalculateEmission = () => {
   const [showPrev, setShowPrev] = useState(false);
   const [isLastQuestion, setisLastQuestion] = useState(false);
   const [distribution, showDistribution] = useState(false);
+  const [showModal , setShowModal] = useState(false)
   const [isResults, setIsResults] = useState({
     result: 0,
     travel: 0,
@@ -187,6 +189,10 @@ const CalculateEmission = () => {
         <div className=" text-2xl sm:text-4xl mb-10 font-bold text-green-800">
           <h1>Calculate your carbon footprint</h1>
         </div>
+          <button onClick={()=>setShowModal(true)}>Modal</button>
+          <Modal show={showModal} onClose={()=> setShowModal(false)}>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad rem qui atque veniam recusandae iure nihil ducimus. Ut earum voluptate eveniet unde explicabo nisi maxime.</p>
+          </Modal>
         <div className="w-full flex flex-col sm:flex-row  mx-auto text-center">
           <div className="flex w-full sm:w-2/5 justify-center align-middle my-auto">
             <Lottie className="h-20vh sm:h-full w-1/2 sm:w-full" animationData={isQuestionIndex.animation} />

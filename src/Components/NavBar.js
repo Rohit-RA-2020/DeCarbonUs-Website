@@ -2,7 +2,7 @@ import Image from "next/image";
 import AppLogo from "../../public/Assets/decarbonusLogo.png";
 import Link from "next/link";
 
-function NavBar(props) {
+const NavBar=(props)=> {
   return (
     <header className="text-gray-400  body-font">
       <div className="container mx-auto flex flex-wrap p-5 sm:p-5 flex-col md:flex-row items-center justify-between">
@@ -32,6 +32,7 @@ function NavBar(props) {
           </Link>
           <Link
             href="/aboutUs"
+            
             className={
               props.focused == "about"
                 ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
