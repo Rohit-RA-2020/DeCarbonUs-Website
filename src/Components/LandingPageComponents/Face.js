@@ -3,14 +3,9 @@ import AppStore from "../../../public/Assets/app_store.png";
 import PlayStore from "../../../public/Assets/play_store.png";
 import React from "react";
 
-import Lottie from "lottie-react";
-import y2023 from "../../../public/Assets/Animations/2023.json";
-
 const FacePage = () => {
   return (
-    // <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0 pt-10 sm:pt-60 xl:pt-20">
-    <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0">
-                <Lottie className="h-20vh" animationData={y2023} />
+    <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0 pt-10 sm:pt-60 xl:pt-10">
       <div className="lg:w-100 text-center ">
         <span className="text-5xl sm:text-8xl font-semibold text-gray-600 font-openSans">
           Grass can be

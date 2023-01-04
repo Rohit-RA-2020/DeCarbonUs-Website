@@ -76,8 +76,9 @@ const Hero = () => {
   };
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
-      <div className="w-fullcontainer flex px-0 pt-24 flex-col items-center">
-        <div className="w-full sm:w-full px-5 py-5 sm:px-48 sm:py-20 flex flex-col sm:flex-row justify-center">
+      <div className="w-fullcontainer flex px-0 sm:pt-24 flex-col items-center">
+        <h1 className="text-4xl text-green-700">Take the app tour</h1>
+        <div className="w-full sm:w-full px-5 pb-5 sm:px-48 sm:pb-20 flex flex-col sm:flex-row justify-center">
           <div className="w-full sm:w-1/2">
             <Image
               className="w-full rounded-lg"
