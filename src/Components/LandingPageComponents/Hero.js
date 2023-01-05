@@ -9,32 +9,39 @@ import ss2 from "../../../public/Assets/AppSs/ss2.png";
 import ss3 from "../../../public/Assets/AppSs/ss3.png";
 import ss4 from "../../../public/Assets/AppSs/ss4.png";
 import ss5 from "../../../public/Assets/AppSs/ss5.png";
+import prev from "../../../public/Assets/prev.png"
+import next from "../../../public/Assets/next.png"
 
 let a = 0;
 const images = [
   {
     id: "i1",
     src: ss1,
+    head: "Calculate your personal Carbon Footprint",
     desc: "Image 11 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
   },
   {
     id: "i2",
     src: ss2,
+    head: "Know about your Shopping trend",
     desc: "Image 22lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work. Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
   },
   {
     id: "i3",
     src: ss3,
+    head: "Get to know people's insights",
     desc: "Image 33 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work. Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
   },
   {
     id: "i4",
     src: ss4,
+    head: "Explore Events and Drives",
     desc: "Image 44 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work.Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
   },
   {
     id: "i5",
     src: ss5,
+    head: "Show your love for Mother Earth",
     desc: "Image 55 lorem ipsum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work.Image 11 lorem psum this is a screenshot and i am trying to create a carousal effect by using useEffect hook and slowly it is starting to work",
   },
 ];
@@ -45,15 +52,29 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (a == 5) {
+      if (a == 4) {
         a = 0;
       }
-        setIsCurrentImage(images[a]);
-        a++;
-      
-    }, 4000);
+      setIsCurrentImage(images[a]);
+      a++;
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const prevClickHandler = (event) => {
+    event.preventDefault();
+    setIsCurrentImage(images[a--]);
+    if (a <= 0) {
+      a = 0;
+    }
+  };
+  const nextClickHandler = (event) => {
+    event.preventDefault();
+    setIsCurrentImage(images[a++]);
+    if (a == 4) {
+      a = 0;
+    }
+  };
 
   const sub = (e) => {
     e.preventDefault();
@@ -76,19 +97,36 @@ const Hero = () => {
   };
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
-      <div className="w-fullcontainer flex px-0 sm:pt-24 flex-col items-center">
-        <h1 className="text-4xl text-green-700">Take the app tour</h1>
-        <div className="w-full sm:w-full px-5 pb-5 sm:px-48 sm:pb-20 flex flex-col sm:flex-row justify-center">
-          <div className="w-full sm:w-1/2">
-            <Image
-              className="w-full rounded-lg"
-              alt="App Photos"
-              src={isCurrentImage.src}
-            />
+      <div className="w-fullcontainer flex px-0 sm:pt-24 flex-col items-center ">
+        <h1 className="text-6xl py-10 text-bold text-green-700">
+          Take the app tour
+        </h1>
+        <div className="w-full relative sm:w-full px-5 mb-5 sm:px-48 sm:mb-20 flex flex-col sm:flex-row justify-center">
+          <div className="w-full relative sm:w-full flex flex-col sm:flex-row">
+            <div className="w-full h-70vh sm:w-1/2">
+              <Image
+                className="h-full w-auto  rounded-lg"
+                alt="App Photos"
+                src={isCurrentImage.src}
+              />
+            </div>
+            <div className="flex flex-col w-full sm:w-1/2 text-eft">
+              <h1 className="text-5xl mt-10">{isCurrentImage.head}</h1>
+              <p className="my-10">{isCurrentImage.desc}</p>
+            </div>
           </div>
-          <div className="flex w-full sm:w-1/2 items-center text-justify">
-              <p className="my-auto">{isCurrentImage.desc}</p>
-              </div>
+          <button
+            className="absolute top-0 bottom-0 left-20"
+            onClick={prevClickHandler}
+          >
+            <Image width="50" src={prev}></Image>
+          </button>
+          <button
+            className="absolute top-0 bottom-0 right-20"
+            onClick={nextClickHandler}
+          >
+            <Image width="50" src={next}></Image>
+          </button>
         </div>
 
         <div className="lg:flex-grow md:w-full flex flex-col md:items-start md:text-left items-center py-20 bg-hero-bkg bg-cover bg-cente">

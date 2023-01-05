@@ -1,4 +1,5 @@
 import Lottie from "lottie-react";
+import Image from "next/image";
 import fummingFactory from "../../../public/Assets/Animations/about_animations/fumming_factory.json";
 import connectWithFriends from "../../../public/Assets/Animations/about_animations/connectWithFriends_1.json";
 import personalized_tracks from "../../../public/Assets/Animations/about_animations/personalized_tracks.json";
