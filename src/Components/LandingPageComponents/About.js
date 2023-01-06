@@ -1,5 +1,4 @@
 import Lottie from "lottie-react";
-import Image from "next/image";
 import fummingFactory from "../../../public/Assets/Animations/about_animations/fumming_factory.json";
 import connectWithFriends from "../../../public/Assets/Animations/about_animations/connectWithFriends_1.json";
 import personalized_tracks from "../../../public/Assets/Animations/about_animations/personalized_tracks.json";
@@ -8,6 +7,7 @@ import Link from "next/link";
 const About = () => {
   return (
     <div className="container px-5 py-24 mx-auto">
+      <h1 className="text-green-700 text-center text-4xl sm:text-5xl my-10">What we offer</h1>
       <div className="flex flex-wrap justify-center">
         <div id="ab1" className="lg:w-1/5 md:w-full text-left px-4 py-6 my-2 mx-3 border-2 rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-gray-500 ">
           <div className="h-36  mb-4">

@@ -6,8 +6,8 @@ const Layout = (props) => {
   if (props.children.key == "home") {
     focused = "home";
   }
-  if (props.children.key == "login") {
-    focused = "login";
+  if (props.children.key == "signIn") {
+    focused = "signIn";
   }
   if (props.children.key == "about") {
     focused = "about";

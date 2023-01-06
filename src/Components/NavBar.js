@@ -44,7 +44,7 @@ const NavBar=(props)=> {
           <Link
             href="/Login&Signup"
             className={
-              props.focused == "login"
+              props.focused == "signIn"
                 ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
                 : "px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
             }

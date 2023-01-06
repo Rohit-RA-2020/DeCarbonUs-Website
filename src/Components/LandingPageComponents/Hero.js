@@ -74,6 +74,9 @@ const Hero = () => {
     if (a == 4) {
       a = 0;
     }
+    else null
+
+    console.log(isCurrentImage.src)
   };
 
   const sub = (e) => {
@@ -98,12 +101,12 @@ const Hero = () => {
   return (
     <section className="w-full text-gray-800 bg-white-900 body-font">
       <div className="w-fullcontainer flex px-0 sm:pt-24 flex-col items-center ">
-        <h1 className="text-6xl py-10 text-bold text-green-700">
+        <h1 className="text-3xl sm:text-6xl py-10 text-bold text-green-700">
           Take the app tour
         </h1>
         <div className="w-full relative sm:w-full px-5 mb-5 sm:px-48 sm:mb-20 flex flex-col sm:flex-row justify-center">
-          <div className="w-full relative sm:w-full flex flex-col sm:flex-row">
-            <div className="w-full h-70vh sm:w-1/2">
+          <div className="w-full relative sm:w-full flex flex-col sm:flex-row justify-center">
+            <div className="w-full h-30vh sm:h-70vh sm:w-1/2">
               <Image
                 className="h-full w-auto  rounded-lg"
                 alt="App Photos"
@@ -111,21 +114,21 @@ const Hero = () => {
               />
             </div>
             <div className="flex flex-col w-full sm:w-1/2 text-eft">
-              <h1 className="text-5xl mt-10">{isCurrentImage.head}</h1>
+              <h1 className="text-2xl sm:text-5xl mt-10 text-center sm:text-left text-green-600">{isCurrentImage.head}</h1>
               <p className="my-10">{isCurrentImage.desc}</p>
             </div>
           </div>
           <button
-            className="absolute top-0 bottom-0 left-20"
+            className="absolute top-0 bottom-0 left-0 sm:left-20"
             onClick={prevClickHandler}
           >
-            <Image width="50" src={prev}></Image>
+            <Image width="40" src={prev}></Image>
           </button>
           <button
-            className="absolute top-0 bottom-0 right-20"
+            className="absolute top-0 bottom-0 right-0 sm:right-20"
             onClick={nextClickHandler}
           >
-            <Image width="50" src={next}></Image>
+            <Image width="40" src={next}></Image>
           </button>
         </div>
 
