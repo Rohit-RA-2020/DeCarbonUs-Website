@@ -2,7 +2,20 @@ import Image from "next/image";
 import AppLogo from "../../public/Assets/decarbonusLogo.png";
 import Link from "next/link";
 
+import { useSelector , useDispatch } from 'react-redux';
+import { authActions } from '../store/auth';
+
 const NavBar=(props)=> {
+
+  const dispatch = useDispatch()
+  const show = useSelector((state)=>state.auth.isAuthenticated)
+
+
+  const logoutHandler=(event)=>{
+    event.preventDefault()
+    dispatch(authActions.logout())
+  }
+
   return (
     <header className="text-gray-400  body-font">
       <div className="container mx-auto flex flex-wrap p-5 sm:p-5 flex-col md:flex-row items-center justify-between">
@@ -44,13 +57,14 @@ const NavBar=(props)=> {
           <Link
             href="/Login&Signup"
             className={
-              props.focused == "signIn"
+              props.focused == "auth"
                 ? "px-2 py-2 mx-2 text-gray-500 border-b-4 border-green-500"
                 : "px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300"
             }
           >
             Sign In
           </Link>
+          {show && <button onClick={logoutHandler} className="px-2 py-2 mx-2 text-gray-500 hover:border-b-4 hover:border-gray-300">Logout</button>}
         </nav>
       </div>
     </header>

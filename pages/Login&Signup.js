@@ -4,8 +4,8 @@ import SignUp from "../src/Components/SignInPageComponents/SignUp";
 const LoginPage = () => {
   return (
     <Layout>
-      <SignIn key="signIn"/>
-      <SignUp key="signUp"/>
+      <SignUp key="auth"/>
+      {/* <SignUp key="signUp"/> */}
     </Layout>
   );
 };

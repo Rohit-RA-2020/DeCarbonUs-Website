@@ -1,13 +1,17 @@
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
+
+import { Provider } from "react-redux";
+import store from "../store/index"
+
 const Layout = (props) => {
   let focused = "";
   let showFooter = true;
   if (props.children.key == "home") {
     focused = "home";
   }
-  if (props.children.key == "signIn") {
-    focused = "signIn";
+  if (props.children.key == "auth") {
+    focused = "auth";
   }
   if (props.children.key == "about") {
     focused = "about";
@@ -16,7 +20,7 @@ const Layout = (props) => {
     showFooter = false;
   }
   return (
-    <>
+    <Provider store={store}>
       <NavBar focused={focused} />
       <main className="w-100 mx-0 my-0">{props.children}</main>
       <style jsx global>{`
@@ -31,7 +35,7 @@ const Layout = (props) => {
         }
       `}</style>
       {showFooter ? <Footer /> : <></>}
-    </>
+    </Provider>
   );
 };
 export default Layout;
