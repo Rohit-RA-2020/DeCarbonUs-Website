@@ -24,6 +24,7 @@ module.exports = {
         "50px": "50px",
         "50vh": "50vh",
         "70vh": "70vh",
+        "78vh": "78vh",
         "80vh": "80vh",
         "85vh": "85vh",
         "88vh": "88vh",

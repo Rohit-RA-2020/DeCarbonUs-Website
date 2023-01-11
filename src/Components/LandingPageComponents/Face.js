@@ -5,7 +5,8 @@ import React from "react";
 
 const FacePage = () => {
   return (
-    <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0 pt-10 sm:pt-40 xl:pt-10">
+    // <div className="h-180 lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-center mx-auto my-0 pt-10 sm:pt-40 xl:pt-10">
+      <div className="h-80vh lg:w-2/3 xl:w-2/3 flex flex-col justify-center align-middle mx-auto my-0">
       <div className="lg:w-100 text-center ">
         <span className="text-5xl sm:text-8xl font-semibold text-gray-600 font-openSans">
           Grass can be

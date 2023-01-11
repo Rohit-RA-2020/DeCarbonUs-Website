@@ -2,7 +2,7 @@ import FacePage from "./Face"
 const MainComponent=()=>{
     return <>
     <section>
-      <div className="h-80vh sm:h-93vh bg-face-bkg bg-no-repeat bg-ps bg-bottom bg-center">
+      <div className="flex h-78vh sm:h-100vh bg-face-bkg bg-no-repeat bg-ps bg-bottom align-middle">
         <FacePage/>
       </div>
       </section>

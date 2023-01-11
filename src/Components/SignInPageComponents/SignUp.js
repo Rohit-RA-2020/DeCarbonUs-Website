@@ -54,32 +54,27 @@ const SignIn = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           dispatch(authActions.signup(user.uid));
-          setIsLoading(false);
           console.log(user);
-
-            if (enteredName != "", enteredEmail!="" ) {
-              db.collection("users")
-                .doc(user.uid)
-                .set({
-                  email: enteredEmail,
-                  name: enteredName,
-                  photo: null,
-                })
-                .then(() => {
-                  alert("Email added successfully");
-                })
-                .catch((error) => {
-                  alert(error.message);
-                });
-            } else {
-              alert("Please enter an Proper Credentials");
-            }
+          db.collection("users")
+            .doc(user.uid)
+            .set({
+              email: enteredEmail,
+              uid: user.uid,
+              name: enteredName,
+              photo: null,
+            })
+            .then(() => {
+              alert("User stored to database");
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+          setIsLoading(false);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode);
-          console.log(errorMessage);
+          alert(errorCode + errorMessage);
           setIsLoading(false);
         });
     }
@@ -112,15 +107,17 @@ const SignIn = () => {
             <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
               <div class="xl:ml-0 xl:w-3/4 lg:w-5/12 md:w-8/12 mt-4 mb-12 md:mb-0">
                 <form>
-                  {!isLogin && <div class="mb-6">
-                  <input
-                    type="text"
-                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="name"
-                    placeholder="Name"
-                    ref={nameInputRef}
-                  />
-                </div>}
+                  {!isLogin && (
+                    <div class="mb-6">
+                      <input
+                        type="text"
+                        class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="name"
+                        placeholder="Name"
+                        ref={nameInputRef}
+                      />
+                    </div>
+                  )}
                   <div class="mb-6">
                     <input
                       type="text"
@@ -180,7 +177,7 @@ const SignIn = () => {
                         : "Already have an account?"}
                       <a
                         onClick={switchAuthModeHandler}
-                        class="text-green-600 hover:text-green-800 focus:text-green-800 transition duration-200 ease-in-out px-2"
+                        class="text-green-600 hover:text-green-800 focus:text-green-800 transition duration-200 ease-in-out px-2 hover:cursor-pointer"
                       >
                         {isLogin ? "Create account" : "Log In"}
                       </a>
