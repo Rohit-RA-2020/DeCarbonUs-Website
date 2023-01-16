@@ -24,7 +24,7 @@ const NavBar=(props)=> {
           className="flex title-font font-medium items-center text-white mb-4 md:mb-0"
         >
           <Image
-            className="w-10 h-10 rounded-full mx-2"
+            className="w-8 h-8 rounded-full mx-2"
             src={AppLogo}
             alt="Website logo"
           />

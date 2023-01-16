@@ -52,11 +52,11 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (a == 4) {
+      a++;
+      if (a == 5) {
         a = 0;
       }
       setIsCurrentImage(images[a]);
-      a++;
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -70,11 +70,11 @@ const Hero = () => {
   };
   const nextClickHandler = (event) => {
     event.preventDefault();
-    setIsCurrentImage(images[a++]);
-    if (a == 4) {
+    a++;
+    if (a == 5) {
       a = 0;
     }
-    else null
+    setIsCurrentImage(images[a]);
 
     console.log(isCurrentImage.src)
   };
