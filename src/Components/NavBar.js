@@ -5,15 +5,49 @@ import Link from "next/link";
 import { useSelector , useDispatch } from 'react-redux';
 import { authActions } from '../store/auth';
 
-const NavBar=(props)=> {
+import { useEffect } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../Firebase"
+import { onAuthStateChanged } from "firebase/auth";
 
+const NavBar=(props)=> {
+  
   const dispatch = useDispatch()
   const show = useSelector((state)=>state.auth.isAuthenticated)
 
-
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token == null || token == " " || token == "undefined") {
+      onAuthStateChanged(auth, (user) => {
+        console.log("from firebase api")
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          const uid = user.uid;
+          console.log(uid)
+          dispatch(authActions.login(uid));
+          // ...
+        } else {
+          // User is signed out
+          console.log("no user")
+        }
+      });
+    }else{
+      console.log("from local storage")
+      dispatch(authActions.login(localStorage.getItem("token")));
+    }
+},[])
+  
+  
   const logoutHandler=(event)=>{
     event.preventDefault()
-    dispatch(authActions.logout())
+    signOut(auth).then(() => {
+      dispatch(authActions.logout())
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+      console.log("not signed out")
+    });
   }
 
   return (

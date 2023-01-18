@@ -17,8 +17,10 @@
     "lottie-react": "^2.3.1",
     "next": "13.1.1",
     "react": "18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.2",
     "sharp": "^0.31.3"
   },
   "devDependencies": {

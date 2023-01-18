@@ -4,7 +4,9 @@ import Footer from "../Components/Footer";
 import { Provider } from "react-redux";
 import store from "../store/index"
 
+
 const Layout = (props) => {
+  
   let focused = "";
   let showFooter = true;
   if (props.children.key == "home") {
