@@ -12,6 +12,7 @@ import pet from "../../public/Assets/Animations/calculator_animations/pet.json";
 import renew_energy from "../../public/Assets/Animations/calculator_animations/renew_energy.json";
 import Modal from "../../src/UI/Modal";
 import { useSelector, useDispatch } from "react-redux";
+import { userActions } from "../store/auth"
 import { db } from "../../src/Firebase";
 
 let a = 0;
@@ -94,8 +95,9 @@ const questions = [
 ];
 
 const Calculate = () => {
-  const show = useSelector((state) => state.auth.isAuthenticated);
-  const uid = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch();
+  const show = useSelector((state) => state.user.isAuthenticated);
+  const uid = useSelector((state) => state.user.token);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isQuestionIndex, setIsQuestionIndex] = useState(questions[a]);
   const [showPrev, setShowPrev] = useState(false);
@@ -189,19 +191,20 @@ const Calculate = () => {
     setIsSubmitted(true);
     const axios = require("axios").default;
     axios
-      .post("https://api-account-345807.el.r.appspot.com/calculate", responses)
-      .then(function (response) {
-        rdata(response.data);
-        if (show) {
-          db.collection("users")
-            .doc(uid)
-            .update({
-              isResponded: true,
-              responses: responses,
-              results: results,
-            })
-            .then(() => {
-              console.log("Ressponses Submitted");
+    .post("https://api-account-345807.el.r.appspot.com/calculate", responses)
+    .then(function (response) {
+      rdata(response.data);
+      if (show) {
+        db.collection("users")
+        .doc(uid)
+        .update({
+          isResponded: true,
+          responses: responses,
+          results: results,
+        })
+        .then(() => {
+          console.log("Ressponses Submitted");
+          dispatch(userActions.settingUserResults(results));
             })
             .catch((error) => {
               alert(error.message);

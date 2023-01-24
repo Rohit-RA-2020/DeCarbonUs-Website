@@ -1,6 +1,7 @@
 import { React, useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { authActions } from "../../store/auth";
+import { userActions } from "../../store/auth";
+// import { dataActions } from "../../store/userData";
 import { auth, db } from "../../Firebase";
 import { useRouter } from "next/router";
 import {
@@ -8,7 +9,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  signInWithCredential,
+  // signInWithCredential,
+  // sendEmailVerification
 } from "firebase/auth";
 
 import Lottie from "lottie-react";
@@ -17,6 +19,7 @@ import Login from "../../../public/Assets/Animations/SigninPageAnimations/Login.
 import loading from "../../../public/Assets/Animations/loading.json";
 import success from "../../../public/Assets/Animations/Success.json";
 
+let date = new Date();
 const SignIn = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -27,32 +30,81 @@ const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // const show = useSelector((state)=>state.auth.isAuthenticated)yo
+  // const show = useSelector((state)=>state.auth.isAuthenticated)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
+  const userDataHandler = (uid) => {
+    db.collection("users")
+      .doc(uid)
+      .get()
+      .then((value) => {
+        const data = value.data();
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          photo: data.photo,
+        };
+        const userResults = data.results;
+        dispatch(userActions.settingUserInfo(userInfo));
+        dispatch(userActions.settingUserResults(userResults));
+        pushToPage()
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const pushToPage =()=>{
+    setIsLoading(false);
+        setIsSuccess(true);
+        if (isLogin) {
+          router.push("/Profile");
+        }else{
+          router.push("/CalculateEmission");
+        }
+  }
 
   const signinWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
     signInWithPopup(auth, provider)
       .then((result) => {
-        
-        const user = result.user;
-        dispatch(authActions.login(user));
-        successHandler();
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(credential);
+        console.log(auth.currentUser);
+        dispatch(userActions.login(auth.currentUser.uid));
+        db.collection("users")
+          .doc(auth.currentUser.uid)
+          .set({
+            email: auth.currentUser.email,
+            emailVerified: true,
+            isResponded: false,
+            lastLogged:
+              auth.currentUser.proactiveRefresh.user.metadata.lastSignInTime,
+            name: auth.currentUser.displayName,
+            photo: auth.currentUser.photoURL,
+            responses: {},
+            results: {},
+            uid: auth.currentUser.uid,
+          })
+          .then(() => {
+            console.log("User stored to database");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+        setIsLoading(false);
+        setIsSuccess(true);
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
-        // const email = error.customData.email;
         console.log(errorCode + "  " + errorMessage + "  " + email);
-        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        console.log(credential);
       });
   };
 
@@ -67,29 +119,25 @@ const SignIn = () => {
     if (isLogin) {
       // For Signin
       signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
-        .then((userCredential) => {
+        .then((userCredential) =>  {
           const user = userCredential.user;
-          dispatch(authActions.login(user.uid));
-          let date = new Date();
+          dispatch(userActions.login(user.uid));
           db.collection("users")
             .doc(user.uid)
             .update({
               lastLogged: date,
             })
             .then(() => {
-              Console.log("date updated in database");
+              console.log("date updated in database");
             })
             .catch((error) => {
-              alert(error.message);
+              console.log(error);
             });
-          successHandler();
-          console.log(user);
+            userDataHandler(user.uid)
         })
         .catch((error) => {
           setIsLoading(false);
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorCode + errorMessage);
+          console.log(error);
         });
     } else {
       //for Signup
@@ -97,8 +145,8 @@ const SignIn = () => {
       createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
         .then((userCredential) => {
           const user = userCredential.user;
-          dispatch(authActions.signup(user.uid));
-          console.log(user);
+          dispatch(userActions.signup(user.uid));
+          console.log(auth.currentUser);
           let date = new Date();
           const photo = `https://firebasestorage.googleapis.com/v0/b/decarbonus-c1037.appspot.com/o/profile.png?alt=media&token=b7fb1269-59bd-4e66-b3f5-a5cd268d9840`;
           db.collection("users")
@@ -118,27 +166,18 @@ const SignIn = () => {
               Console.log("User stored to database");
             })
             .catch((error) => {
-              alert(error.message);
+              console.log(error);
             });
-          successHandler();
-          // nameInputRef.current.value = "";
+          userDataHandler(user.uid);
         })
         .catch((error) => {
-          // const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorMessage);
+          console.log(error);
           setIsLoading(false);
           nameInputRef.current.value = "";
         });
     }
     emailInputRef.current.value = "";
     passwordInputRef.current.value = "";
-  };
-
-  const successHandler = () => {
-    setIsLoading(false);
-    setIsSuccess(true);
-    router.push("/CalculateEmission");
   };
 
   return (

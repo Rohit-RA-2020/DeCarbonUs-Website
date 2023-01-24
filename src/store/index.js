@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authAction from './auth';
+import userAction from './auth';
+// import { dataActions } from './userData';
 
 const store = configureStore({
-  reducer: {auth: authAction}
+  reducer: {user: userAction}
 });
 export default store;

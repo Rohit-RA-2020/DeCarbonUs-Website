@@ -21,6 +21,9 @@ const Layout = (props) => {
   if (props.children.key == "calculator") {
     showFooter = false;
   }
+  if (props.children.key == "profile") {
+    focused = "profile";
+  }
   return (
     <Provider store={store}>
       <NavBar focused={focused} />

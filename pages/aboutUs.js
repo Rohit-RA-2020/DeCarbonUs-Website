@@ -3,8 +3,10 @@ import OurTeam from "../src/Components/AboutUsPageComponents/OurTeam"
 import Layout from "../src/Layout/Layout";
 const AboutUs=()=>{
     return <Layout>
-        <OurTeam key="about"/>
+        <div  key="about">
+        <OurTeam/>
         <Contact/>
+        </div>
     </Layout>
 }
 export default AboutUs;

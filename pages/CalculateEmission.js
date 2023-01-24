@@ -9,11 +9,3 @@ const CalculateEmission = () => {
 };
 export default CalculateEmission;
 
-// <p>{travel}</p>
-// <p>{diet}</p>
-// <p>{carTravel}</p>
-// <p>{fuel}</p>
-// <p>{homePeople}</p>
-// <p>{homeSize}</p>
-// <p>{pet}</p>
-// <p>{shopping}</p>
