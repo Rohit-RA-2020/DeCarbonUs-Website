@@ -67,6 +67,23 @@ const SignIn = () => {
         }
   }
 
+  // const emailVerification=()=>{
+  //   sendEmailVerification(auth.currentUser)
+  // .then(() => {
+  //         db.collection("users")
+  //           .doc(auth.currentUser.uid)
+  //           .update({
+  //             emailVerified: true,
+  //           })
+  //           .then(() => {
+  //             console.log("date updated in database");
+  //           })
+  //           .catch((error) => {
+  //             console.log(error);
+  //           });
+  // });
+  // }
+
   const signinWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
@@ -150,34 +167,32 @@ const SignIn = () => {
           let date = new Date();
           const photo = `https://firebasestorage.googleapis.com/v0/b/decarbonus-c1037.appspot.com/o/profile.png?alt=media&token=b7fb1269-59bd-4e66-b3f5-a5cd268d9840`;
           db.collection("users")
-            .doc(user.uid)
-            .set({
-              email: enteredEmail,
-              emailVerified: false,
-              isResponded: false,
-              lastLogged: date,
-              name: enteredName,
-              photo: photo,
-              responses: {},
-              results: {},
-              uid: user.uid,
-            })
-            .then(() => {
-              Console.log("User stored to database");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          .doc(user.uid)
+          .set({
+            email: enteredEmail,
+            emailVerified: false,
+            isResponded: false,
+            lastLogged: date,
+            name: enteredName,
+            photo: photo,
+            responses: {},
+            results: {},
+            uid: user.uid,
+          })
+          .then(() => {
+            // emailVerification()
+            console.log("User stored to database");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
           userDataHandler(user.uid);
         })
         .catch((error) => {
           console.log(error);
           setIsLoading(false);
-          nameInputRef.current.value = "";
         });
     }
-    emailInputRef.current.value = "";
-    passwordInputRef.current.value = "";
   };
 
   return (

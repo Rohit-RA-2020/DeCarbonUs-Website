@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import air from "../../public/Assets/Animations/calculator_animations/air_travel.json";
@@ -228,7 +227,7 @@ const Calculate = () => {
       <div className="w-full flex flex-col sm:flex-row  mx-auto text-center">
         <div className="flex w-full sm:w-2/5 justify-center align-middle my-auto">
           <Lottie
-            className="h-20vh sm:h-full w-1/2 sm:w-full"
+            className="w-2/3"
             animationData={isQuestionIndex.animation}
           />
         </div>
@@ -244,7 +243,7 @@ const Calculate = () => {
                 {isQuestionIndex.options.map((option, index) => {
                   return (
                     <button
-                      className=" py-4 px-6 bg-gray-300 my-2 rounded-2xl hover:bg-green-700 hover:text-white focus:bg-green-700 focus:text-white "
+                      className="p-5 hover:bg-green-600 hover:text-white focus:bg-green-600 my-2"
                       onClick={() => optionClickHandler(a, index)}
                       key={index}
                     >
