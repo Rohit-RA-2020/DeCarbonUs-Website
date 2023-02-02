@@ -93,6 +93,7 @@ const SignIn = () => {
         console.log(credential);
         console.log(auth.currentUser);
         dispatch(userActions.login(auth.currentUser.uid));
+        userDataHandler(auth.currentUser.uid)
         db.collection("users")
           .doc(auth.currentUser.uid)
           .set({

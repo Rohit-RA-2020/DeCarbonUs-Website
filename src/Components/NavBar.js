@@ -1,15 +1,17 @@
 import Image from "next/image";
 import AppLogo from "../../public/Assets/decarbonusLogo.png";
 import Link from "next/link";
-
+import { signOut } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { userActions } from "../store/auth";
 
 import { useEffect } from "react";
 import { auth } from "../Firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const NavBar = (props) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const show = useSelector((state) => state.user.isAuthenticated);
 
@@ -41,6 +43,22 @@ const NavBar = (props) => {
       dispatch(userActions.settingUserResults(JSON.parse(localStorage.getItem("userResults"))));
     }
   }, []);
+
+
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    signOut(auth)
+      .then(() => {
+        dispatch(userActions.logout());
+        // Sign-out successful.
+        router.push("/Login&Signup");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+        console.log("not signed out");
+      });
+  };
 
 
   return (
@@ -103,6 +121,16 @@ const NavBar = (props) => {
             >
               Profile
             </Link>
+          )}
+          {show && (
+            <button
+              href="/Profile"
+              onClick={logoutHandler}
+              className="px-2 py-2 mx-2 text-gray-500 border-b-4 hover:border-green-500"
+              
+            >
+              logout
+            </button>
           )}
         </nav>
       </div>

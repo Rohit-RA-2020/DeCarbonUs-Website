@@ -3,9 +3,11 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase";
 import { userActions } from "../../store/auth";
 import { useRouter } from "next/router";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 const Dashboard = () => {
+  const [showResults, setShowResults] = useState(true);
   const people = [
     {
       id: 1,
@@ -31,6 +33,14 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.user.userInfo);
   const userResults = useSelector((state) => state.user.userResults);
+
+  let show = {};
+  show = useSelector((state) => state.user.userResults);
+  useEffect(() => {
+    if (Object.keys(show).length === 0) {
+      setShowResults(false);
+    }
+  });
 
   const logoutHandler = (event) => {
     event.preventDefault();
@@ -72,9 +82,7 @@ const Dashboard = () => {
             className="flex-shrink-0 rounded-full w-48 h-48 object-cover object-center my-5 mx-auto"
             src={userInfo.photo}
           />
-          <p className="text-white text-xl mt-4 text-center">
-            {userInfo.name}
-          </p>
+          <p className="text-white text-xl mt-4 text-center">{userInfo.name}</p>
           <p className="text-gray-400 text-md mt-4 text-center">
             {userInfo.email}
           </p>
@@ -115,81 +123,95 @@ const Dashboard = () => {
             <h1 className="text-gray-800 font-bold text-3xl mb-5">
               My Dashboard
             </h1>
-            <div className="flex flex-col sm:flex-row">
-              <div className="bg-white py-5 px-10 shadow-md rounded-lg sm:w-1/5">
-                <h2 className="text-gray-700 text-lg font-medium border-b-2">
-                  Result
-                </h2>
-                <p className="text-gray-700 mt-4 text-5xl">
-                  {userResults.result}
-                </p>
-                <p className="text-gray-500">tons/year</p>
-              </div>
-
-              <div
-                className="my-8 mx-8
-               flex flex-wrap sm:w-4/5"
+            {!showResults && <div className="flex flex-col sm:flex-row">
+              <a
+                className="text-white bg-green-600 font-medium block py-2 px-4 text-center border-2 rounded-lg"
+                href="/CalculateEmission"
               >
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">
-                    Car Travel
+                Calculate your carbon emission here
+              </a>
+            </div>}
+            {showResults && (
+              <div className="flex flex-col sm:flex-row">
+                <div className="bg-white py-5 px-10 shadow-md rounded-lg sm:w-1/5">
+                  <h2 className="text-gray-700 text-lg font-medium border-b-2">
+                    Result
                   </h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.carTravel}
+                  <p className="text-gray-700 mt-4 text-5xl">
+                    {userResults.result}
                   </p>
+                  <p className="text-gray-500">tons/year</p>
                 </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">Diet</h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.diet}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">Fuel</h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.fuel}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">
-                    Family
-                  </h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.homePeople}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">
-                    Home Size
-                  </h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.homeSize}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">Pet</h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.pet}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">
-                    Shopping
-                  </h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.shopping}
-                  </p>
-                </div>
-                <div className="w-1/2 sm:w-1/6 p-4 ">
-                  <h2 className="text-gray-500 sm:text-sm border-b-2">
-                    Travel
-                  </h2>
-                  <p className="text-gray-800 text-3xl mt-4">
-                    {userResults.travel}
-                  </p>
+
+                <div
+                  className="my-8 mx-8
+               flex flex-wrap sm:w-4/5"
+                >
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Car Travel
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.carTravel}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Diet
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.diet}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Fuel
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.fuel}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Family
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.homePeople}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Home Size
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.homeSize}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">Pet</h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.pet}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Shopping
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.shopping}
+                    </p>
+                  </div>
+                  <div className="w-1/2 sm:w-1/6 p-4 ">
+                    <h2 className="text-gray-500 sm:text-sm border-b-2">
+                      Travel
+                    </h2>
+                    <p className="text-gray-800 text-3xl mt-4">
+                      {userResults.travel}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="bg-gray-100 p-4 sm:w-1/2">
