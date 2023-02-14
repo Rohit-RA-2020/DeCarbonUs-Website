@@ -48,7 +48,7 @@ const Dashboard = () => {
       .then(() => {
         dispatch(userActions.logout());
         // Sign-out successful.
-        router.push("/Login&Signup");
+        router.push("/onboarding");
       })
       .catch((error) => {
         // An error happened.

@@ -7,10 +7,8 @@ import { useRouter } from "next/router";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  // signInWithCredential,
-  // sendEmailVerification
+  // signInWithPopup,
+  // GoogleAuthProvider
 } from "firebase/auth";
 
 import Lottie from "lottie-react";
@@ -20,6 +18,7 @@ import loading from "../../../public/Assets/Animations/loading.json";
 import success from "../../../public/Assets/Animations/Success.json";
 
 let date = new Date();
+let responseError = " ";
 const SignIn = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -29,8 +28,6 @@ const SignIn = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  // const show = useSelector((state)=>state.auth.isAuthenticated)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -67,64 +64,47 @@ const SignIn = () => {
         }
   }
 
-  // const emailVerification=()=>{
-  //   sendEmailVerification(auth.currentUser)
-  // .then(() => {
-  //         db.collection("users")
-  //           .doc(auth.currentUser.uid)
-  //           .update({
-  //             emailVerified: true,
-  //           })
-  //           .then(() => {
-  //             console.log("date updated in database");
-  //           })
-  //           .catch((error) => {
-  //             console.log(error);
-  //           });
-  // });
-  // }
-
-  const signinWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        console.log(credential);
-        console.log(auth.currentUser);
-        dispatch(userActions.login(auth.currentUser.uid));
-        userDataHandler(auth.currentUser.uid)
-        db.collection("users")
-          .doc(auth.currentUser.uid)
-          .set({
-            email: auth.currentUser.email,
-            emailVerified: true,
-            isResponded: false,
-            lastLogged:
-              auth.currentUser.proactiveRefresh.user.metadata.lastSignInTime,
-            name: auth.currentUser.displayName,
-            photo: auth.currentUser.photoURL,
-            responses: {},
-            results: {},
-            uid: auth.currentUser.uid,
-          })
-          .then(() => {
-            console.log("User stored to database");
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-        setIsLoading(false);
-        setIsSuccess(true);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode + "  " + errorMessage + "  " + email);
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(credential);
-      });
-  };
+  // const signinWithGoogle = () => {
+  //   const provider = new GoogleAuthProvider();
+  //   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       console.log(credential);
+  //       console.log(auth.currentUser);
+  //       dispatch(userActions.login(auth.currentUser.uid));
+  //       userDataHandler(auth.currentUser.uid)
+  //       db.collection("users")
+  //         .doc(auth.currentUser.uid)
+  //         .set({
+  //           email: auth.currentUser.email,
+  //           emailVerified: true,
+  //           isResponded: false,
+  //           lastLogged:
+  //             auth.currentUser.proactiveRefresh.user.metadata.lastSignInTime,
+  //           name: auth.currentUser.displayName,
+  //           photo: auth.currentUser.photoURL,
+  //           responses: {},
+  //           results: {},
+  //           uid: auth.currentUser.uid,
+  //         })
+  //         .then(() => {
+  //           console.log("User stored to database");
+  //         })
+  //         .catch((error) => {
+  //           alert(error.message);
+  //         });
+  //       setIsLoading(false);
+  //       setIsSuccess(true);
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log(errorCode + "  " + errorMessage + "  " + email);
+  //       const credential = GoogleAuthProvider.credentialFromError(error);
+  //       console.log(credential);
+  //     });
+  // };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -156,6 +136,7 @@ const SignIn = () => {
         .catch((error) => {
           setIsLoading(false);
           console.log(error);
+          responseError = error.code ;
         });
     } else {
       //for Signup
@@ -228,6 +209,7 @@ const SignIn = () => {
       {!isLoading && !isSuccess && (
         <div className="flex w-full sm:w-2/5 sm:h-80vh items-center bg-white-500/50">
           <div className="lg:w-4/5 md:w-full text-left px-4 py-6 my-2 border-1 rounded-3xl overflow-hidden transform transition duration-500 sm:m-0  mx-auto">
+          <h1 className="text-red-500 text-md text-center">{responseError}</h1>
             <div className="w-full h-full text-gray-800 bg-white-500/50 ">
               <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
                 <div className="xl:ml-0 xl:w-3/4 lg:w-5/12 md:w-8/12 mt-4 mb-12 md:mb-0">
@@ -273,7 +255,7 @@ const SignIn = () => {
                         {isLogin ? "Log In" : "Sign Up"}
                       </button>
 
-                      <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                      {/* <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                         <p className="text-center font-semibold mx-4 mb-0">
                           Or
                         </p>
@@ -320,7 +302,7 @@ const SignIn = () => {
                             Sign Up with Google
                           </p>
                         </button>
-                      </div>
+                      </div> */}
                       <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                         {isLogin
                           ? "Do not have an acount?"

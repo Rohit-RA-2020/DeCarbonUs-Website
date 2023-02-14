@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "../src/Layout/Layout";
-import LandingPage from "./LandingPage";
+import Landingpage from "./landingpage";
 
 import { Andika } from '@next/font/google'
 const andika = Andika({ weight: '400', subsets: ['latin'] })
@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout className={andika.className}>
-        <LandingPage key="home" />
+        <Landingpage key="home" />
       </Layout>
     </>
   );

@@ -14,11 +14,16 @@ const Layout = (props) => {
   }
   if (props.children.key == "auth") {
     focused = "auth";
+    showFooter = false;
   }
   if (props.children.key == "about") {
     focused = "about";
   }
   if (props.children.key == "calculator") {
+    showFooter = false;
+  }
+  if (props.children.key == "blogs") {
+    focused = "blogs";
     showFooter = false;
   }
   if (props.children.key == "profile") {
