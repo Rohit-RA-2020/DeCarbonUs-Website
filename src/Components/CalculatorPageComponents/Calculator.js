@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import air from "../../public/Assets/Animations/calculator_animations/air_travel.json";
-import diet from "../../public/Assets/Animations/calculator_animations/diet.json";
-import car from "../../public/Assets/Animations/calculator_animations/car.json";
-import fuel from "../../public/Assets/Animations/calculator_animations/fuel.json";
-import shopping from "../../public/Assets/Animations/calculator_animations/shopping.json";
-import home from "../../public/Assets/Animations/calculator_animations/home.json";
-import members from "../../public/Assets/Animations/calculator_animations/members.json";
-import pet from "../../public/Assets/Animations/calculator_animations/pet.json";
-import renew_energy from "../../public/Assets/Animations/calculator_animations/renew_energy.json";
-import Modal from "../../src/UI/Modal";
+import air from "../../../public/Assets/Animations/calculator_animations/air_travel.json";
+import diet from "../../../public/Assets/Animations/calculator_animations/diet.json";
+import car from "../../../public/Assets/Animations/calculator_animations/car.json";
+import fuel from "../../../public/Assets/Animations/calculator_animations/fuel.json";
+import shopping from "../../../public/Assets/Animations/calculator_animations/shopping.json";
+import home from "../../../public/Assets/Animations/calculator_animations/home.json";
+import members from "../../../public/Assets/Animations/calculator_animations/members.json";
+import pet from "../../../public/Assets/Animations/calculator_animations/pet.json";
+import renew_energy from "../../../public/Assets/Animations/calculator_animations/renew_energy.json";
+import Modal from "../../../src/UI/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import { userActions } from "../store/auth"
-import { db } from "../../src/Firebase";
+import { userActions } from "../../store/auth"
+import { db } from "../../../src/Firebase";
 
 let a = 0;
 let b = 1;
@@ -117,6 +117,7 @@ const Calculate = () => {
 
   useEffect(() => {
     setShowModal(true);
+    console.log(isQuestionIndex.options)
   }, []);
 
   function optionClickHandler(qIndex, oIndex) {
@@ -209,12 +210,10 @@ const Calculate = () => {
               alert(error.message);
             });
         }
-        // console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-    // console.log(rdata);
   };
   return (
     <div
