@@ -3,7 +3,7 @@ import AppLogo from "../../public/Assets/decarbonusLogo.png";
 import Link from "next/link";
 import { signOut } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
-import { userActions } from "../store/auth";
+import { userActions } from "../store/user";
 
 import { useEffect } from "react";
 import { auth } from "../Firebase";

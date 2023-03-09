@@ -1,6 +1,6 @@
 import { React, useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { userActions } from "../../store/auth";
+import { userActions } from "../../store/user";
 // import { dataActions } from "../../store/userData";
 import { auth, db } from "../../Firebase";
 import { useRouter } from "next/router";
@@ -58,7 +58,7 @@ const SignIn = () => {
     setIsLoading(false);
         setIsSuccess(true);
         if (isLogin) {
-          router.push("/Profile");
+          router.push("/");
         }else{
           router.push("/CalculateEmission");
         }

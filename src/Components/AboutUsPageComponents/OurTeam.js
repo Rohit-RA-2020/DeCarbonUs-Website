@@ -19,7 +19,7 @@ const Team = () => {
             where we need to be.
           </p>
         </div>
-        <div className="flex flex-wrap w-full">
+        <div className="flex flex-wrap justify-center w-full">
           <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
@@ -208,7 +208,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 w-full sm:w-1/3 ">
+          {/* <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-start justify-center text-center sm:text-left">
               <Image
                 alt="Vinay Selukar"
@@ -249,7 +249,7 @@ const Team = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="p-4 w-full sm:w-1/3 ">
             <div className="h-full flex flex-col items-center sm:justify-center justify-center text-center sm:text-center">
               <Image

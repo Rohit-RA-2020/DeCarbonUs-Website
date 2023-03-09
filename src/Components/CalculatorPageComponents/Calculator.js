@@ -11,7 +11,7 @@ import pet from "../../../public/Assets/Animations/calculator_animations/pet.jso
 import renew_energy from "../../../public/Assets/Animations/calculator_animations/renew_energy.json";
 import Modal from "../../../src/UI/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import { userActions } from "../../store/auth"
+import { userActions } from "../../store/user"
 import { db } from "../../../src/Firebase";
 
 let a = 0;

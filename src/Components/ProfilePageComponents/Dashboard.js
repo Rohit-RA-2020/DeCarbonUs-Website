@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase";
-import { userActions } from "../../store/auth";
+import { userActions } from "../../store/user";
 import { useRouter } from "next/router";
 // import Navigation from "./Navigation";
 import Image from "next/image";
